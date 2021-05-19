@@ -249,7 +249,9 @@ function makeBloomFilter(backend, lastSync) {
 function getChangesToSend(backend, have, need) {
   const opSet = backend.get('opSet')
   if (have.length === 0) {
-    return need.map(hash => OpSet.getChangeByHash(opSet, hash))
+    // return need.map(hash => OpSet.getChangeByHash(opSet, hash))
+    // Per Martin, temp fix for bug with multiple peers syncing and missing changes
+    return need.map(hash => OpSet.getChangeByHash(opSet, hash)).filter(change => change)
   }
 
   let lastSyncHashes = {}, bloomFilters = []

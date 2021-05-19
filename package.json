@@ -1,5 +1,5 @@
 {
-  "name": "automerge",
+  "name": "@skokenes/automerge",
   "version": "1.0.1-preview.2",
   "description": "Data structures for building collaborative applications",
   "main": "src/automerge.js",
